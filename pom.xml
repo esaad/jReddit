@@ -10,7 +10,7 @@
 
     <groupId>com.github.jreddit</groupId>
     <artifactId>jreddit</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.5-SNAPSHOT</version>
     <name>jReddit</name>
     <description>jReddit is a wrapper for the Reddit API written in Java.</description>
     <url>https://github.com/karan/jReddit</url>
@@ -33,6 +33,21 @@
         <connection>scm:git:git://github.com/karan/jReddit.git</connection>
         <developerConnection>scm:git:git@github.com:karan/jReddit.git</developerConnection>
     </scm>
+
+    <distributionManagement>
+        <repository>
+          <id>sonatype-nexus-staging</id>
+          <name>Nexus Staging Repo</name>
+          <url>http://localhost:8081/nexus/content/repositories/releases</url>
+        </repository>
+
+        <snapshotRepository>
+        <id>sonatype-nexus-staging</id>
+        <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
 
     <developers>
         <developer>
@@ -198,13 +213,14 @@
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>${nexus.staging.maven.plugin.version}</version>
                 <extensions>true</extensions>
-                <inherited>false</inherited>
+                <!--inherited>false</inherited-->
                 <configuration>
-                    <serverId>sonatype-nexus-releases</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <stagingProfileId>3ebea71aace18d</stagingProfileId>
+                    <serverId>nexus</serverId>
+                    <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+                    <!--stagingProfileId>3ebea71aace18d</stagingProfileId -->
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>

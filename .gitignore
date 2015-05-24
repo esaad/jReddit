@@ -10,3 +10,4 @@ target/
 .settings/
 src/main/java/examples/er
 authentication.txt
+/build/

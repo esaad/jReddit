@@ -3,6 +3,7 @@ plugins {
     id 'maven'
     id 'com.github.kt3k.coveralls' version "2.1.0"
     id "net.saliman.cobertura" version "2.2.5"
+    id 'eclipse-wtp'
 }
 
 tasks.withType(JavaCompile) {
